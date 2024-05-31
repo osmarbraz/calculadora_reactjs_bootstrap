@@ -8,7 +8,7 @@ function FrmCalculadora() {
     const [valorA, setValorA] = useState(0);
     const [operacao, setOperacao] = useState('adicao');
     const [valorB, setValorB] = useState(0);
-    const [resultado, setResultado] = useState(0);
+    const [resposta, setResposta] = useState({a: 0, b: 0, operador: '?', resultado: 0});
   
     // Submissão do formulário.
     const handleSubmit = (event) => {
@@ -16,8 +16,8 @@ function FrmCalculadora() {
       event.preventDefault();      
       //Endereço da API + operação + valorA + valorB
       fetch(`http://localhost:8000/${operacao}/${valorA}/${valorB}`)
-        .then((res) => res.json()) //Converte a resposta para JSON
-        .then((data) => setResultado(data.resultado)); // Atribui a resposta ao resultado
+        .then((response) => response.json()) //Converte a resposta para JSON
+        .then((data) => setResposta({a: data.a, b : data.b, operador: data.operador, resultado: data.resultado})); // Atribui a resposta as variáveis
     };
 
     // Limpa os campos do formulário.     
@@ -25,7 +25,7 @@ function FrmCalculadora() {
       setValorA(0);
       setOperacao('adicao');
       setValorB(0);
-      setResultado(0);
+      setResposta({a: 0, b : 0, operador: '?', resultado: 0});
     };
   
     // Renderiza o formulário
@@ -57,7 +57,8 @@ function FrmCalculadora() {
             <Button variant="primary" type="submit" name="Calcular">Calcular</Button>
           </Form.Group>
           <Form.Group>
-            <br/><Form.Label>Resultado: {resultado} </Form.Label>     
+            <br/><Form.Label>Resultado: </Form.Label>  
+            <br/><Form.Label> {resposta.a} {resposta.operador} {resposta.b} = {resposta.resultado} </Form.Label>     
           </Form.Group>
         </Form>
       </Container>
