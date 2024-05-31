@@ -42,10 +42,10 @@ function FrmCalculadora() {
           <Form.Group>
             <Form.Label>Opera&ccedil;&atilde;o:</Form.Label>
             <Form.Select name="operacao" value={operacao} onChange={(event) => setOperacao(event.target.value)} >
-                        <option value="adicao">Adi&ccedil;&atilde;o</option>
-                        <option value="subtracao">Subtra&ccedil;&atilde;o</option>
-                        <option value="multiplicacao">Multiplica&ccedil;&atilde;o</option>
-                        <option value="divisao">Divis&atilde;o</option>
+              <option value="adicao">Adi&ccedil;&atilde;o</option>
+              <option value="subtracao">Subtra&ccedil;&atilde;o</option>
+              <option value="multiplicacao">Multiplica&ccedil;&atilde;o</option>
+              <option value="divisao">Divis&atilde;o</option>
             </Form.Select><br/>
           </Form.Group>
           <Form.Group>
