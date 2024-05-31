@@ -58,7 +58,7 @@ function FrmCalculadora() {
           </Form.Group>
           <Form.Group>
             <br/><Form.Label>Resultado: </Form.Label>  
-            <br/><Form.Label> {resposta.a} {resposta.operador} {resposta.b} = {resposta.resultado} </Form.Label>     
+            <br/><Form.Label> {resposta.a} {resposta.operador} {resposta.b} = {resposta.resultado} </Form.Label>
           </Form.Group>
         </Form>
       </Container>
